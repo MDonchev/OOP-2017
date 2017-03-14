@@ -1,8 +1,6 @@
 #include <iostream>
 using namespace std;
-/*структура Student,
- която има съответните
-  член-данни и функции за вход/изход */
+/*asdasdasdasdasdas */
 struct Student
 {
     char name [20];
