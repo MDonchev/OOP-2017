@@ -42,11 +42,13 @@ void Planet::copyPlanet(const Planet& other)
     this->pos = other.getPositon();
     this->diam = other.getDiam();
 }
-Planet::Planet() : name(NULL), diam(0.0)
+Planet::Planet() : name(NULL)
 {
+    setName("");
     this->pos.x = 0.0;
     this->pos.y = 0.0;
     this->pos.z = 0.0;
+    setDiam(0.0);
 }
 Planet::Planet(const char* nameH, Position posH, float distH) : name(NULL)
 {

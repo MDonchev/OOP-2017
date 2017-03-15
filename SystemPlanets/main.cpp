@@ -5,6 +5,8 @@ int main ()
     Position posMars = {1.0,2.0,4.0};
     Position posEarth = {4.0,7.0,2.0};
 
+    Planet test;
+    test.print();
     Planet earth("Earth", posEarth, 340.60);
     earth.print();
 
