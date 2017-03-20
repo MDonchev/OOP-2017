@@ -32,6 +32,7 @@ class Planet
         }
 
         float distance (const Planet&) const;
+        //distance from star
 
         void setName (const char*);
         void setPosition (const Position&);
