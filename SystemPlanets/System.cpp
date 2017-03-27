@@ -11,7 +11,7 @@ void System::setName(const char* _name)
 }
 void System::copySystem(const System& other)
 {
-    setName(other.setName());
+    setName(other.getName());
     planets = new Planet [capacity];
     for (int i = 0; i<counter ; i++)
     {
@@ -41,12 +41,13 @@ void System::addPlanet(const Planet& pl)
 }
 void System::remPlanet(const char* plName)
 {
-    //TODO
     for(int i=0; i<counter; i++)
     {
         if (strcmp(planets[i].getName(), plName) == 0)
         {
-            for(int j=i; )
+            for(int j=i+1; j < counter; j++)
+                planets[j - 1] = planets[j];
+            counter--;
         }
     }
 }

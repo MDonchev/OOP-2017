@@ -13,12 +13,12 @@ class System
         int getCapacity() const { return capacity; }
         int getCounter() const { return counter; }
         const char* getName() const { return name;}
-        Planet* getPlanets() const { return planets};
+        Planet* getPlanets() const { return planets;}
 
         void setName(const char*); //
         Planet* biggestPlanet() const; //
         Planet* largestDist() const; //
-        void print() const;
+        void print() const; //
 
         void addPlanet(const Planet& pl);
         void remPlanet(const char* plName);
