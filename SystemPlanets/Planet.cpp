@@ -58,12 +58,10 @@ Planet::Planet(const char* nameH, Position posH, float distH) : name(NULL)
 }
 Planet::Planet(const Planet& other) : name(NULL)
 {
-    std::cout<<"CopyConstructor"<<std::endl;
     copyPlanet(other);
 }
 Planet& Planet::operator= (const Planet& other)
 {
-    std::cout<<"operator="<<std::endl;
     if (this != &other)
         copyPlanet(other);
     return *this;
