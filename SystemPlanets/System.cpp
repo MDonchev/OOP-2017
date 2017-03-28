@@ -11,8 +11,11 @@ void System::setName(const char* _name)
 }
 void System::copySystem(const System& other)
 {
+    delete[] planets;
     setName(other.getName());
-    planets = new Planet [capacity];
+    counter = other.getCounter();
+    capacity = other.getCapacity();
+    planets = new Planet [counter+capacity];
     for (int i = 0; i<counter ; i++)
     {
         planets[i] = *(other.getPlanets() + i);
@@ -20,21 +23,17 @@ void System::copySystem(const System& other)
 }
 void System::resizing()
 {
-    capacity *= 2;
+    capacity = 2*counter;
     Planet* buffer = new Planet [capacity];
     for (int i = 0; i < counter ; i++)
         buffer[i] = planets[i];
     delete[] planets;
     planets = buffer;
 }
-void System::erasing()
-{
-    delete[] name;
-    delete[] planets;
-}
 void System::addPlanet(const Planet& pl)
 {
-    if (capacity == 0) resizing();
+    if (capacity <= counter)
+        resizing();
     planets[counter] = pl;
     counter++;
     capacity--;
@@ -56,23 +55,22 @@ System::System(const char* _name, int _capacity = 1) : name(NULL), planets(NULL)
     setName(_name);
     planets = new Planet [_capacity];
 }
-System::System(const System& other) : name(NULL), planets(NULL), counter(other.getCounter()), capacity(other.getCapacity())
+System::System(const System& other) : name(NULL), planets(NULL)
 {
-    erasing();
     copySystem(other);
 }
 System& System::operator=(const System& other)
 {
     if (this != &other)
     {
-        erasing();
         copySystem(other);
     }
     return *this;
 }
 System::~System()
 {
-    erasing();
+    delete[] name;
+    delete[] planets;
 }
 Planet* System::biggestPlanet() const
 {

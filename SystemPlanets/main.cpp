@@ -7,43 +7,43 @@ int main ()
     Position posJupiter = {4.0,4.0,4.0};
     Position posEarth = {2.0,2.0,2.0};
 
-    //Planet test;
-    //test.print();
     Planet earth("Earth", posEarth, 400.00);
-    //earth.print();
-
-    //std::cout<<std::endl;
-    //Planet copyEarth(earth);
-    //std::cout<<std::endl;
-    //copyEarth.print();
-
-
     Planet mars("Mars", posMars, 300);
     Planet mercury("Mercury", posMercury, 100);
     Planet jupiter("Jupiter", posJupiter, 1000);
 
-    //mars.print();
+    System Solar("Solar System");
 
-    //std::cout<<std::endl;
-    //Planet copyMars = mars;
-    //copyMars.print();
-
-    //copyEarth = mars;
-    //std::cout<<std::endl;
-    //copyEarth.print();
-    //std::cout<<earth.distance(mars)<<std::endl;
-    //std::cout<<mars.distance(earth)<<std::endl;
-    System Solar("Solar System", 6);
-    //std::cout<<"Created System"<<std::endl;
     Solar.addPlanet(earth);
     Solar.addPlanet(jupiter);
     Solar.addPlanet(mars);
     Solar.addPlanet(mercury);
-    std::cout<<"Added planets"<<std::endl;
-    System copySolar = Solar;
-    //Solar.print();
-    //std::cout<<copySolar.getCounter()<<std::endl;
-    copySolar.print();
+    Solar.print();
+
+    std::cout<<std::endl;
+    std::cout<<std::endl;
+    Solar.biggestPlanet()->print();
+    std::cout<<std::endl;
+    std::cout<<std::endl;
+    Solar.largestDist()->print();
+    Position neptunPos = {7,7,7};
+    Position plytoPos = {9,9,9};
+    Planet neptun ("Neptun", neptunPos, 700);
+    Planet plyto("Plyto", plytoPos, 50);
+    Solar.addPlanet(neptun);
+    Solar.addPlanet(plyto);
+    std::cout<<std::endl;
+    Solar.print();
+    std::cout<<std::endl;
+    std::cout<<std::endl;
+    Solar.remPlanet("Jupiter");
+    Solar.print();
+    std::cout<<std::endl;
+    std::cout<<std::endl;
+    Solar.biggestPlanet()->print();
+    std::cout<<std::endl;
+    std::cout<<std::endl;
+    Solar.largestDist()->print();
     return 0;
 }
 

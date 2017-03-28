@@ -26,7 +26,6 @@ class System
     private:
         void resizing(); //
         void copySystem(const System&); //
-        void erasing (); //
 
         char* name;
         Planet* planets;
