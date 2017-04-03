@@ -15,7 +15,7 @@ void System::copySystem(const System& other)
     setName(other.getName());
     counter = other.getCounter();
     capacity = other.getCapacity();
-    planets = new Planet [counter+capacity];
+    planets = new Planet [capacity];
     for (int i = 0; i<counter ; i++)
     {
         planets[i] = *(other.getPlanets() + i);
@@ -23,7 +23,7 @@ void System::copySystem(const System& other)
 }
 void System::resizing()
 {
-    capacity = 2*counter;
+    capacity = 2*capacity;
     Planet* buffer = new Planet [capacity];
     for (int i = 0; i < counter ; i++)
         buffer[i] = planets[i];
@@ -32,11 +32,10 @@ void System::resizing()
 }
 void System::addPlanet(const Planet& pl)
 {
-    if (capacity <= counter)
+    if (capacity == counter)
         resizing();
     planets[counter] = pl;
     counter++;
-    capacity--;
 }
 void System::remPlanet(const char* plName)
 {
