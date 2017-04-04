@@ -100,7 +100,7 @@ public:
 
 
 
-class Becycle
+class Bicycle
 {
 
     char* brand;
@@ -149,7 +149,7 @@ class Becycle
         }
     }
 public:
-    Becycle(): brand(NULL)
+    Bicycle(): brand(NULL)
     {
         setBrand("");
         _size=1;
@@ -157,7 +157,7 @@ public:
         _price=0;
         parts=new CyclePart[_size];
     }
-    Becycle(char* _brand): brand(NULL)
+    Bicycle(char* _brand): brand(NULL)
     {
         setBrand(_brand);
         _size=1;
@@ -165,7 +165,7 @@ public:
         _price=0;
         parts=new CyclePart[_size];
     }
-    Becycle(const Becycle& other): brand(NULL), parts(NULL)
+    Bicycle(const Bicycle& other): brand(NULL), parts(NULL)
     {
         setBrand(other.brand);
         _size=other._size;
@@ -176,7 +176,7 @@ public:
         for(int i=0;i<_count;i++)
             parts[i] = other.parts[i];
     }
-    Becycle& operator=(const Becycle& other)
+    Bicycle& operator=(const Bicycle& other)
     {
         if(this==&other)
         {
@@ -191,7 +191,7 @@ public:
         }
         return *this;
     }
-    ~Becycle()
+    ~Bicycle()
     {
         delete brand;
         delete parts;
@@ -213,39 +213,39 @@ public:
         return _price*1.5;
     }
 
-    Becycle& operator+(const CyclePart& part)
+    Bicycle& operator+(const CyclePart& part)
     {
         addPart(part);
         return *this;
     }
-    Becycle& operator-(CyclePart& part)
+    Bicycle& operator-(CyclePart& part)
     {
         remPart(part);
         return *this;
     }
     //is the brand same??
-    bool operator==(const Becycle& other)
+    bool operator==(const Bicycle& other)
     {
         return strcmp(brand,other.brand)==0;
     }
     //is the price not equal
-    bool operator!=(Becycle& other)
+    bool operator!=(Bicycle& other)
     {
         return !(getPrice() == other.getPrice());
     }
-    bool operator<(Becycle& other)
+    bool operator<(Bicycle& other)
     {
         return countHighQuality() < other.countHighQuality();
     }
-    bool operator<=(Becycle& other)
+    bool operator<=(Bicycle& other)
     {
         return countHighQuality() <= other.countHighQuality();
     }
-    bool operator>(Becycle& other)
+    bool operator>(Bicycle& other)
     {
         return countHighQuality() > other.countHighQuality();
     }
-    bool operator>=(Becycle& other)
+    bool operator>=(Bicycle& other)
     {
         return countHighQuality() >= other.countHighQuality();
     }
@@ -274,8 +274,8 @@ int main()
     CyclePart two("tier",20,Quality::High);
     CyclePart three("seat",5,Quality::Low);
 
-    Becycle bmx("bmx");
-    Becycle bmx1("bmx");
+    Bicycle bmx("bmx");
+    Bicycle bmx1("bmx");
     bmx1+one;
     bmx1+two;
     bmx1+two;
