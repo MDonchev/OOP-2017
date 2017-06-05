@@ -11,7 +11,7 @@ class Directory : public FSObject
         Directory& operator=(const Directory&);
         ~Directory();
 
-        //pure virtual functions in FSObject would be overridden
+        //pure virtual functions in FSObject could be overridden
         virtual double getSize() const;
         virtual FSObject* clone() const;
 

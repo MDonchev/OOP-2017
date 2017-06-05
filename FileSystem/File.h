@@ -11,7 +11,7 @@ class File : public FSObject
         File& operator=(const File&);
         ~File();
 
-        //pure virtual functions in FSObject would be overridden
+        //pure virtual functions in FSObject could be overridden
         virtual double getSize() const;
         virtual FSObject* clone() const;
 
